@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+[data-theme="1"]{
+    --main-bg: hsl(222, 26%, 31%);
+    --keypad-bg: hsl(223, 31%, 20%);
+    --screen-bg: hsl(224, 36%, 15%);
+    --key-bg--1: hsl(225, 21%, 49%);
+    --key-shadow--1: hsl(224, 28%, 35%);
+    --key-bg--2: hsl(6, 63%, 50%);
+    --key-shadow--2: hsl(6, 70%, 34%);
+    --key-bg--3: hsl(30, 25%, 89%);
+    --key-shadow--3: hsl(28, 16%, 65%);
+    --text-1: hsl(0, 0%, 100%);
+    --text-2: hsl(221, 14%, 31%);
+    --text-3: hsl(0, 0%, 100%);
+    --position: translateX(0);
+}
+
+[data-theme="2"]{
+    --main-bg: hsl(0, 0%, 90%);
+    --keypad-bg: hsl(0, 5%, 81%);
+    --screen-bg: hsl(0, 0%, 93%);
+    --key-bg--1: hsl(185, 42%, 37%);
+    --key-shadow--1: hsl(185, 58%, 25%);
+    --key-bg--2: hsl(25, 98%, 40%);
+    --key-shadow--2: hsl(25, 99%, 27%);
+    --key-bg--3: hsl(45, 7%, 89%);
+    --key-shadow--3: hsl(35, 11%, 61%);
+    --text-1: hsl(60, 10%, 19%);
+    --text-2: hsl(60, 10%, 19%);
+    --text-3: hsl(0, 0%, 100%);
+    --position: translateX(20px);
+}
+
+[data-theme="3"]{
+    --main-bg: hsl(268, 75%, 9%);
+    --keypad-bg: hsl(268, 71%, 12%);
+    --screen-bg: hsl(268, 71%, 12%);
+    --key-bg--1: hsl(281, 89%, 26%);
+    --key-shadow--1: hsl(285, 91%, 52%);
+    --key-bg--2: hsl(176, 100%, 44%);
+    --key-shadow--2: hsl(177, 92%, 70%);
+    --key-bg--3: hsl(268, 47%, 21%);
+    --key-shadow--3: hsl(290, 70%, 36%);
+    --text-1: hsl(52, 100%, 62%);
+    --text-2: hsl(52, 100%, 62%);
+    --text-3: hsl(198, 20%, 13%);
+    --position: translateX(40px);
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color .3s;
+}
+::-webkit-scrollbar {
+    width: 12px;        
+    height: 5px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: var(--key-bg--2);
+    border-radius: 20px;      
+  }
+
+body{
+    font-family: 'League Spartan', sans-serif;
+}
+
+.calc{
+    background-color: var(--main-bg);
+    min-height: 100vh;
+    display: flex;
+}
+
+.calc__container{
+    width: 90%;
+    max-width: 31.25rem;
+    margin: auto;
+}
+
+.calc__top{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.calc__name{
+    color: var(--text-1);
+}
+
+.calc__themes{
+    display: flex;
+    gap: 0.9375em;
+    align-items: flex-end;
+}
+
+.calc__text{
+    color: var(--text-1);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    padding: 0 0.3125em;
+}
+
+.calc__sw{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3125em;
+}
+
+.calc__switchnumber{
+    display: flex;
+    gap: 0.625em;
+}
+
+.calc__switch{
+    background-color: var(--keypad-bg);
+    border-radius: 1.875rem;
+    position: relative;
+    height: 1.625rem;
+    cursor: pointer;
+}
+
+.calc__switch::after{
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    background-color: var(--key-bg--2);
+    border-radius: 1.875rem;
+    transition: transform .3s;
+    transform: var(--position);
+}
+
+.calc__screen{
+    background-color: var(--screen-bg);
+    margin: 1.25em 0;
+    border-radius: 0.625rem;
+    padding: 1.875em;
+    text-align: right;
+    overflow-x: scroll;
+    scrollbar-color: var(--key-bg--2);
+    scrollbar-width: thin;
+}
+
+.calc__result{
+    color: var(--text-1);
+    font-size: 2.5rem;
+}
+
+.calc__buttons{
+    background-color: var(--keypad-bg);
+    border-radius: 0.625rem;
+    padding: 1.875em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 3.75rem;
+    gap: 1.25em;
+}
+
+.calc__button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 0.625rem;
+    font-size: 1.875rem;
+    font-family: 'League Spartan', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .3s ;
+}
+
+.calc__button--op{
+    background-color: var(--key-bg--3);
+    color: var(--text-2);   
+    border-bottom: 4px solid var(--key-shadow--3);
+}
+
+.calc__button--func{
+    color: hsl(0, 0%, 100%);
+    background-color: var(--key-bg--1);
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--key-shadow--1);
+}
+
+.calc__button:nth-child(17){
+    grid-column: 1/3;
+}
+
+.calc__button--result{
+    background-color: var(--key-bg--2);
+    color: var(--text-3);
+    border-bottom: 4px solid var(--key-shadow--2);
+    grid-column: 3/5;
+}
+
+.calc__button:hover{
+    transform: scale(0.9);
+}
